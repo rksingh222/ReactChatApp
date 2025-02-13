@@ -1,0 +1,863 @@
+React
+Error while creating React App: React
+Updated the node using
+
+#brew update
+
+#brew upgrade node
+
+#node -v
+
+#npm install -g rpm
+
+To create a first react project
+
+#npx create-react-app frontend
+
+tried to run the react
+
+#npm start
+
+gave me an error saying it can not run because something is already running on that port
+
+#npx kill-port 3000
+
+this will kill the current process
+
+then I was getting error on web-vitals
+
+and also an error on adding devdependency
+
+@babel/plugin-proposal-private-property-in-object
+
+npm install @babel/plugin-proposal-private-property-in-object –save-dev
+
+this will install the dev dependency on the project
+
+also web-vitals can be added
+
+#npm install web-vitals
+
+then I ran
+
+#npm start
+
+It worked
+
+Now creating a backend In Main App ie ChatApp
+
+npm init –y
+
+add the installer files required
+
+using npm i ….
+
+change this in the package.json file
+
+“scripts”: {
+
+“server”: “nodemon backend/server.js”
+
+},
+
+In the server.js which will be inside the backend folder
+
+const express = require(‘express’);
+
+const app = express();
+
+const PORT = process.env.PORT || 4000;
+
+app.get(‘/’,(req,res) => {
+
+res.send(“This is from backend”);
+
+})
+
+app.listen(PORT, ()=> {
+
+console.log(`Server is running on port ${PORT}`)
+
+})
+
+In case of this Error EADDRINUSE 
+
+lsof -i tcp:3000
+
+kill -9 processId
+
+To run two process concurrently: React
+In Package.json of Chat Application
+
+frontend is the directory inside the Chat Application
+
+“scripts”: {
+
+“server”: “nodemon backend/server.js”,
+
+“client”: “npm start –prefix frontend”,
+
+“dev”: “concurrently \” npm run server \” \” npm run client \””
+
+},
+
+In command prompt
+
+npm run dev
+
+this will run backend and frontend server together
+
+
+
+How to enter code in Particular jsx file so that it enters automatically: React
+entering rafce in jsx file for example register.jsx will automatically enter the code
+
+backend
+
+server.js
+
+const express = require(‘express’);
+
+const app = express();
+
+const PORT = process.env.PORT || 4000;
+
+app.get(‘/’,(req,res) => {
+
+res.send(“This is from backend”);
+
+})
+
+app.listen(PORT, ()=> {
+
+console.log(`Server is running on port ${PORT}`)
+
+})
+
+Frontend
+
+App.js
+
+import logo from ‘./logo.svg’;
+
+import ‘./App.css’;
+
+import Login from ‘./components/Login’;
+
+import Register from ‘./components/Register’;
+
+import { BrowserRouter, Routes, Route } from “react-router-dom”;
+
+function App() {
+
+return (
+
+<div>
+
+<BrowserRouter>
+
+<Routes>
+
+<Route path=”/messenger/login” element={<Login />} />
+
+<Route path=”/messenger/register” element={<Register />} />
+
+</Routes>
+
+</BrowserRouter>
+
+</div>
+
+);
+
+}
+
+export default App;
+
+Register
+
+import React from ‘react’
+
+const Register = () => {
+
+return (
+
+<div><h1>This is a register page</h1></div>
+
+)
+
+}
+
+export default Register
+
+Login
+
+import React from ‘react’
+
+const Login = () => {
+
+return (
+
+<div><h1>This is a login page</h1></div>
+
+)
+
+}
+
+export default Login
+
+———- Setup Frontend with Rect App ————-
+
+npm i axios
+npm i jwt-decode
+npm i moment
+npm i sass
+npm i react-hot-toast
+npm i react-icons
+npm i react-alert
+npm i react-alert-template-basic
+npm i react-redux
+npm i redux
+npm redux-thunk
+npm i react-router-dom
+npm i socket.io-client
+npm i axios moment jwt-decode node-sass react-alert react-alert-template-basic react-hot-toast react icons react-redux redux redux-thunk react-router-dom socket.io-client
+
+———- Setup Backend Node Express ————-
+
+npm init –y
+npm i bcrypt
+npm i body-parser
+npm i concurrently
+npm i cookie-parser
+npm i dotenv
+npm i express
+npm i formidable
+npm i jsonwebtoken
+npm i mongoose
+npm nodemon
+npm i validator
+npm i bcrypt body-parser concurrently cookie-parser dotenv express formidable jsonwebtoken mongoose nodemon validator
+
+How to add sass in our react code: React
+You need install / to uninstall use 
+npm uninstall package name
+npm i sass
+In the source folder create a sass folder. In the sass folder create three more folders base, components and util (based on your sass requirement).In base write _reset.scss, similarly in components write _register.scss and in utils write _utils.scss 
+In _reset.scss
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+:root{
+    --text-white: #fff;
+    --bg-color : #FFFFFF;
+    --text-color : #050505;
+    --icon-bg-color : #F5F5F5;
+    --icon-color : #414141;
+    --search-bg : #868e991a;
+    --active-color : #0000000a;
+    --border-color : #E5E5E5;
+    --message-icon-color : #0099FF;
+    --fd-message-bg : #E5E5E5;
+    --my-message-bg : #0084FF;
+    --my-message-color : #fff;
+    --fd-message-color : #050505;
+    --image-border-color : rgb(155, 153, 153);
+    --active-icon-color : #5AD539;
+    --hover-color : #bcbcc091;
+}
+body{
+    background-color: var(--bg-color);
+    font-family: 'Roboto',sans-serif;
+}
+
+.messenger.theme{
+    --text-color : #fff;
+    --bg-color : #141b2bf0;
+    --border-color : #213156bf;
+    --icon-bg-color: #0a0a1357;
+    --active-color : #2b335591;
+    --hover-color : #323a5c91;
+    --fd-message-bg : #28324ed9;
+    --my-message-bg : #28324ed9;
+    --search-bg : #15162559;
+    --text-white : #fff;
+    --text-dark : #404040;
+    --icon-color : #fff;
+    --message-icon-color : #fff;
+    --my-message-color : #fff;
+    --fd-message-color : #fff;
+    --active-icon-color : #5AD539;
+    --image-border-color : #fff;
+}
+a{
+    text-decoration: none;
+}
+li{
+    list-style: none;
+}
+
+_register.scss
+
+.register{
+    width: 100%;
+    height: 100vh;
+    background-color: azure;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .card{
+        .card-header{
+            h3{
+                text-align: center;
+                color: #fff;
+            }
+        }
+        .card-body{
+            .form-group{
+                .form-control{
+                    color: #fff;
+                }
+                &:last-child{
+                    margin-bottom: 0px;
+                }
+                span{
+                    text-align: center;
+                    a{
+                        color: #fff;
+                    }
+                }
+                .file-image{
+                    display: flex;
+                    .image{
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 50%;
+                        border : 1px solid rgb(199, 195, 195);
+                        overflow: hidden;
+                        img{
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                        }
+                    }
+                    .file{
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        .form-control{
+                            display: none;
+                        }
+                        label{
+                            background-color: #0a0e1585;
+                            padding: 8px;
+                            margin-bottom: 0px;
+                            width: 120px;
+                            text-align: center;
+                            border-radius: 50px;
+                            margin-left: 10px;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+_utils.scss
+.card{
+    width: 375px;
+    padding: 15px 20px;
+    background-color: #1c3f8fd4;
+    box-shadow: 0px 8px 25px #f5f0f0;
+}
+.form-group{
+    margin: 10px 0px;
+    display: flex;
+    flex-direction: column;
+}
+.form-control{
+    padding: 12px;
+    border: none;
+    outline: none;
+    background-color: #0a0e1585;
+    &::placeholder{
+        color: #fff;
+        font-weight: 400;
+    }
+}
+label{
+    margin-bottom: 5px;
+    color: #fff;
+    font-weight: 500;
+}
+.btn{
+    outline: none;
+    color: #fff;
+    text-transform: uppercase;
+    padding: 12px;
+    text-align: center;
+    background-color: #101a23eb;
+    border: none;
+    cursor: pointer;
+}
+
+In the source folder create
+main.scss
+copy this in main.scss
+@import './sass/base/reset';
+@import './sass/components/register';
+@import './sass/utils/utils';
+
+In index.js
+import './main.scss';
+
+learn here if you are getting some problems on sass
+https://sass-lang.com/documentation/breaking-changes/import/
+Adding Redux In React Code: React
+In Src folder create store and in store create index.js i.e src/store/index.js
+import {createStore, compose, combineReducers, applyMiddleware} from 'redux';
+import {thunk} from 'redux-thunk';
+
+const rootReducer = combineReducers({
+
+})
+
+const middleware = [thunk]
+
+const store = createStore(rootReducer, compose(applyMiddleware(...middleware),
+window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__
+() ));
+
+export default store;
+
+Go to index.js
+
+import { Provider } from 'react-redux';
+import store from './store/index.js'
+root.render(
+  //<React.StrictMode>
+  <Provider store={store}>
+    <App />
+  </Provider>
+  //</React.StrictMode>
+);
+run the react application by
+
+npm run dev
+Adding States in React after Adding Redux: React
+const [state, setstate] = useState({
+       userName : '',
+       email : '',
+       password : '',
+       confirmPassword : '',
+       image : ''
+  })
+
+  const inputHandle = (e) => {
+    setstate({
+      ...state,
+      [e.target.name] : e.target.value
+    })
+  }
+
+  const fileHandle = e => {
+    if(e.target.files.length !== 0){
+      setstate({
+        ...state,
+        [e.target.name] : e.target.files[0]
+      })
+    }
+  }
+
+ const register = e => {
+    e.preventDefault();
+    console.log(state);
+  }
+
+should be added inside the Register.jsx main code
+
+onSubmit={register} = when you do the submission of form this will be invoked and this will call register function where we are preventing its execution and displaying the state value
+
+onChange={inputHandle} name="email" value={state.email}  - this will call inputHandle and value will be saved in state.email
+
+In case of file it uses different format
+input type="file" name="image" onChange={fileHandle}  className='form-control' id='image' />
+
+    <div className='register'>
+      <div className='card'>
+        <div className='card-header'>
+          <h3>Register</h3>
+        </div>
+
+        <div className='card-body'>
+          <form onSubmit={register}>
+
+            <div className='form-group'>
+              <label htmlFor='username'>User Name</label>
+              <input type="text" onChange={inputHandle} name="userName" value={state.userName}
+              className='form-control' placeholder='User Name' id='username' />
+            </div>
+
+            <div className='form-group'>
+              <label htmlFor='email'>Email</label>
+              <input type="email" onChange={inputHandle} name="email" value={state.email} 
+              className='form-control' placeholder='Email' id='email' />
+            </div>
+
+            <div className='form-group'>
+              <label htmlFor='password'>Password</label>
+              <input type="password" onChange={inputHandle} name="password" value={state.password} 
+              className='form-control' placeholder='Password' id='password' />
+            </div>
+
+
+            <div className='form-group'>
+              <label htmlFor='confirmPassword'>Confirm Password</label>
+              <input type="password" onChange={inputHandle} name="confirmPassword" value={state.confirmPassword}
+               className='form-control' placeholder='Confirm Password' id='confirmPassword' />
+            </div>
+
+            <div className='form-group'>
+              <div className='file-image'>
+                <div className='image'>
+
+                </div>
+                <div className='file'>
+                  <label htmlFor='image'>Select Image</label>
+                  <input type="file" name="image" onChange={fileHandle}  className='form-control' id='image' />
+                </div>
+
+              </div>
+            </div>
+
+            <div className='form-group'>
+              <input type="submit" value="register" className='btn' />
+            </div>
+
+
+            <div className='form-group'>
+              <span><Link to="/messenger/login"> Login Your Account </Link></span>
+            </div>
+          </form>
+        </div>
+
+
+      </div>
+
+    </div>
+Linked List Example: React
+import java.util.LinkedList;
+
+record Place(String name, int distance){
+
+    @Override
+    public String toString() {
+        return String.format("%s (%d)", name, distance);
+    }
+}
+
+public  class Main {
+    public  static  void main(String[] args){
+        LinkedList<Place> placesToVisit = new LinkedList<>();
+
+        Place adelaide = new Place("Adelaide", 1374);
+        addPlace(placesToVisit,adelaide);
+        addPlace(placesToVisit,new Place("Adelaide", 1374));
+        addPlace(placesToVisit, new Place("Brisbane", 917));
+        addPlace(placesToVisit, new Place("Perth", 3923));
+        addPlace(placesToVisit, new Place("Alice Springs", 2771));
+        addPlace(placesToVisit, new Place("Darwin", 3972));
+        System.out.println(placesToVisit);
+    }
+    private static void addPlace(LinkedList<Place> list, Place place){
+        if(list.contains(place)){
+            System.out.println("Found duplicate" + place);
+            return;
+        }
+        for(Place p : list){
+            if(p.name().equalsIgnoreCase(place.name())){
+                System.out.println("Found duplicate: " + place);
+                return;
+            }
+        }
+        int matchedIndex = 0;
+        for (var listPlace: list) {
+            if (place.distance() < listPlace.distance()){
+                list.add(matchedIndex, place);
+                return;
+            }
+            matchedIndex++;
+        }
+        list.add(place);
+    }
+}
+output : Found duplicateAdelaide (1374)
+[Brisbane (917), Adelaide (1374), Alice Springs (2771), Perth (3923), Darwin (3972)]
+When selecting Image The image needs to be displayed: React
+first defining the loadImage using useState
+const [loadImage, setLoadImage] = useState('');
+
+const fileHandle = e => {
+//== this part will save the filename to        //== e.target.name
+    if(e.target.files.length !== 0){
+      setstate({
+        ...state,
+        [e.target.name] : e.target.files[0]
+      })
+    }
+//== Here I am trying to get the file and 
+//== then I am putting in readAsDataUrl the 
+//== filename so it is putting the value
+//== loadImage
+    const reader = new FileReader();
+    reader.onload = () => {
+      setLoadImage(reader.result);
+    }
+    reader.readAsDataURL(e.target.files[0]);
+  }
+
+In the return part
+<div className='form-group'>
+              <div className='file-image'>
+                <div className='image'>
+//== here loadImage is a usestate
+//== we are checking if load image has any
+//== value then display the image
+                {loadImage ? <img src={loadImage} alt=""/> : ''}
+                </div>
+                <div className='file'>
+                  <label htmlFor='image'>Select Image</label>
+                  <input type="file" name="image" onChange={fileHandle}  className='form-control' id='image' />
+                </div>
+
+              </div>
+            </div>
+
+How to put dispatch and save date in Format and then sending it to dispatch: React
+import {useDispatch} from 'react-redux'
+import { userRegister } from '../store/actions/authAction';
+
+first storing the value of state which we stored before now in these separately
+const {userName, email, password, confirmPassword,image} = state;
+
+const formData = new FormData();
+formData.append('userName',userName);
+formData.append('email', email);
+formData.append('password', password);
+formData.append('confirmPassword', confirmPassword);
+formData.append('image', image);
+dispatch(userRegister(formData))
+
+setting useDispatch to send the value to dispatch
+
+Dispatch file created inside
+public/store/actions/authAction.js
+
+Dispatch File authAction.js
+import axios from 'axios';
+
+export const userRegister = (data) => {
+    return async (dispatch) => {
+
+        const config = {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
+        try{
+            const response = await axios.post('/api/messenger/user-register',data,config);
+            console.log(response.data);
+        }catch(error){
+            console.log(error.response.data)
+        }
+    }
+}
+
+In Package.json of ChatProject
+before the closing braces copy this because this 
+
+ "proxy": "http://localhost:5000"
+}
+
+will be our backend where the data will be saved that is 
+http://localhost:5000/api/messenger/user-register
+Connecting with MongoDb using nodes: React
+To connect with MongoDB then you have to use this code also until you won't insert element in the database collection it won't show the database 
+
+const mongoConnect = (callback) => {
+
+const { MongoClient, ServerApiVersion } = require('mongodb');
+    const uri = "mongodb+srv://rahulsingh22021985:Test123@freecluster.ak3mv.mongodb.net/?retryWrites=true&w=majority&appName=FreeCluster";
+    // Create a MongoClient with a MongoClientOptions object to set the Stable API version
+    const client = new MongoClient(uri, {
+        serverApi: {
+            version: ServerApiVersion.v1,
+            strict: true,
+            deprecationErrors: true,
+        }
+    });
+    async function run() {
+        try {
+            // Connect the client to the snperver	(optional starting in v4.7)
+            await client.connect();
+            // Send a ping to confirm a successful connection
+            const db =  client.db("sample_guides");
+            const coll =  db.collection("comets");
+            const docs = [
+                {name: "Halley's Comet", officialName: "1P/Halley", orbitalPeriod: 75, radius: 3.4175, mass: 2.2e14},
+                {name: "Wild2", officialName: "81P/Wild", orbitalPeriod: 6.41, radius: 1.5534, mass: 2.3e13},
+                {name: "Comet Hyakutake", officialName: "C/1996 B2", orbitalPeriod: 17000, radius: 0.77671, mass: 8.8e12}
+              ];
+            const result = await coll.insertMany(docs);
+            console.log(result.insertedIds);
+            console.log("Pinged your deployment. You successfully connected to MongoDB!");
+        } finally {
+            // Ensures that the client will close when you finish/error
+            await client.close();
+        }
+    }
+    run().catch(console.dir);
+
+};
+exports.mongoConnect = mongoConnect;
+
+another way to insert the record  ======
+but remember you have to insert the record in the database to show it in the compass or online
+
+const mongoConnect = (callback) => {
+
+MongoClient.connect("mongodb+srv://rahulsingh22021985:Test123@freecluster.ak3mv.mongodb.net/hello?retryWrites=true&w=majority&appName=FreeCluster").then(client =>{
+        
+        const db = client.db("myDB");
+        const myColl = db.collection("myColl");
+        client.db("admin").command({ ping: 1 });
+        console.log("Pinged your deployment. You successfully connected to MongoDB!");
+        console.log('Connected');
+        _db = client.db();
+        callback();
+        }).catch(err => {
+            console.log(err);
+            throw err;
+        });
+};
+How to call mongoclient from server.js: React
+backend/config/config.env
+PORT = 6000
+DATABASE_URL = mongodb+srv://rahulsingh22021985:Test123@freecluster.ak3mv.mongodb.net/retryWrites=true&w=majority&appName=FreeCluster?retryWrites=true&w=majority
+
+backend/config/database.js
+
+backend/server.js
+const express = require('express');
+const app = express();
+const dotenv = require('dotenv');
+
+//const databaseConnect = require('./config/database')
+const mongoConnect = require('./config/database').mongoConnect;
+
+dotenv.config({
+    path: 'backend/config/config.env'
+})
+
+const PORT = process.env.PORT || 6000;
+
+app.get('/',(req,res) => {
+    res.send("This is from backend");
+})
+
+mongoConnect(() => {
+    //app.listen(process.env.PORT || PORT,()=>{ console.log(`listening on port ${PORT}`)} );
+    
+})
+
+app.listen(PORT, ()=> {
+    console.log(`Server is running on port ${PORT}`)
+})
+How to call post connection from server.js: React
+In routes create routes/authroute.js
+
+const router = require('express').Router();
+
+const {userRegister} = require('../controller/authController');
+
+router.post('/user-register', userRegister);
+
+module.exports = router;
+
+In controller create controller/authcontroller.js
+
+module.exports.userRegister = (req, res) => {
+    console.log('register is working');
+}
+
+In Server.js
+const authRouter = require('./routes/authRoute')
+app.use('/api/messenger', authRouter);
+
+#npm run dev
+call this
+http://localhost:3000/messenger/register
+click on register 
+In the terminal it will show 
+register is working
+Creating Mongoose Database and Schema: React
+
+const mongoose = require('mongoose');
+
+const databaseConnect = () => {
+    mongoose.connect(process.env.DATABASE_URL, {
+        useNewUrlParser : true,
+        useUnifiedTopology : true
+    }).then(()=> {
+        console.log("test")
+        console.log('Mongodb Database Connected');
+    }).catch(error=>{
+        console.log(error);
+    })
+}
+
+module.exports = databaseConnect;
+
+const databaseConnect = require('./config/database')
+const dotenv = require('dotenv');
+dotenv.config({
+    path: 'backend/config/config.env'
+})
+
+
+databaseConnect();
+
+to create a table need to create schema
+const {model, Schema} = require('mongoose');
+
+const registerSchema = new Schema({
+    userName: {
+        type : String,
+        required : true
+    },
+    email : {
+        type : String,
+        required : true
+    },
+    password : {
+        type : String,
+        required : true,
+        select : false  //making the password not to be saved
+    },
+    email : {
+        type : String,
+        required : true
+    },
+    image : {
+        type : String,
+        required : true,
+    }
+}, {timestamps : true});
+
+module.exports = model('user', registerSchema)
+
