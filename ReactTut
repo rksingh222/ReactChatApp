@@ -861,3 +861,64 @@ const registerSchema = new Schema({
 
 module.exports = model('user', registerSchema)
 
+formidable and Validator: React
+const { formidable } = require('formidable');
+const validator = require('validator');
+
+module.exports.userRegister = (req, res) => {
+    console.log('register is working');
+
+    //using formidable we can get the values of fields in the ui page 
+    //if you have username textbox that will be retrieved here
+
+    const form = formidable();
+    form.parse(req, async(err, fields, files) => {
+        console.log(fields);
+
+        const {
+            userName, email, password, confirmPassword
+        } = fields;
+
+        const {image} = files;
+        const error = [];
+
+        if(!userName){
+            error.push('Please provide your user name');
+        }
+        if(!email){
+            error.push('Please provide your email');
+        }
+        if(email && !validator.isEmail(email)){
+            error.push('Please provide your password');
+        }
+        if(!password){
+            error.push('Please provide your password');
+        }
+        if(!confirmPassword){
+            error.push('Please provide your confirm password');
+        }
+        if(password && confirmPassword && password !== confirmPassword){
+            error.push('Your password and confirm password are not same');
+        }
+        if(password && password.length < 6){
+            error.push('Please provide password must be 6 character');
+        }
+        if(password && password.length < 6){
+            error.push('Please provide password must be 6 character');
+        }
+        if(Object.keys(files).length === 0){
+            error.push('Please provide user image');
+        }
+        if(error.length > 0){
+            res.status(400).json({
+                error:{
+                    errorMesssage : error
+                }
+            })
+        } else {
+            
+        }
+    })
+}
+back up on 16th
+
